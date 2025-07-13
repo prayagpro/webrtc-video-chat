@@ -86,3 +86,28 @@ function createPeerConnection() {
 
   return pc;
 }
+// === Mute/Unmute Audio ===
+const toggleAudioBtn = document.getElementById("toggle-audio");
+toggleAudioBtn.onclick = () => {
+  const audioTrack = localStream.getAudioTracks()[0];
+  if (audioTrack.enabled) {
+    audioTrack.enabled = false;
+    toggleAudioBtn.textContent = "🔈 Unmute";
+  } else {
+    audioTrack.enabled = true;
+    toggleAudioBtn.textContent = "🔇 Mute";
+  }
+};
+
+// === Toggle Video On/Off ===
+const toggleVideoBtn = document.getElementById("toggle-video");
+toggleVideoBtn.onclick = () => {
+  const videoTrack = localStream.getVideoTracks()[0];
+  if (videoTrack.enabled) {
+    videoTrack.enabled = false;
+    toggleVideoBtn.textContent = "📷 Turn On Camera";
+  } else {
+    videoTrack.enabled = true;
+    toggleVideoBtn.textContent = "📷 Turn Off Camera";
+  }
+};

@@ -37,3 +37,22 @@ video {
   border-radius: 10px;
   background: black;
 }
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #333;
+}
