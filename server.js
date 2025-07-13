@@ -29,6 +29,10 @@ io.on('connection', (socket) => {
     socket.to(data.room).emit('answer', data.answer);
   });
 
+  socket.on("chat-message", (data) => {
+  socket.to(data.room).emit("chat-message", data);
+  });
+
   socket.on('ice-candidate', (data) => {
     socket.to(data.room).emit('ice-candidate', data.candidate);
   });

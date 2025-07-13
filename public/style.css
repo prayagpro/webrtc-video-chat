@@ -56,3 +56,56 @@ video {
 .controls button:hover {
   background-color: #333;
 }
+
+.chat-container {
+  width: 400px;
+  margin: 30px auto;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#chat-box {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 200px;
+  padding: 5px;
+  border-bottom: 1px solid #444;
+}
+
+.chat-message {
+  margin: 5px 0;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #444;
+}

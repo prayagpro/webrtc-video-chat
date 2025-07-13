@@ -111,3 +111,31 @@ toggleVideoBtn.onclick = () => {
     toggleVideoBtn.textContent = "📷 Turn Off Camera";
   }
 };
+
+const chatInput = document.getElementById("chat-message");
+const sendBtn = document.getElementById("send-btn");
+const chatBox = document.getElementById("chat-box");
+
+// Send message
+sendBtn.onclick = () => {
+  const message = chatInput.value.trim();
+  if (message && room) {
+    socket.emit("chat-message", { message, room });
+    appendMessage(`You: ${message}`);
+    chatInput.value = "";
+  }
+};
+
+// Receive message
+socket.on("chat-message", (data) => {
+  appendMessage(`Stranger: ${data.message}`);
+});
+
+// Append to chat box
+function appendMessage(msg) {
+  const div = document.createElement("div");
+  div.className = "chat-message";
+  div.textContent = msg;
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
