@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2-Person Video Call</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeMeet - Video & Code</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/material-darker.min.css" />
 </head>
 <body>
-  <h1>💻 2-Person Video Chat</h1>
+  <h1>💻 CodeMeet</h1>
 
   <div class="room">
     <input type="text" id="room-input" placeholder="Enter Room ID" />
@@ -18,21 +22,37 @@
     <video id="localVideo" autoplay muted playsinline></video>
     <video id="remoteVideo" autoplay playsinline></video>
   </div>
-  
-  <div class="chat-container">
-  <div id="chat-box"></div>
-  <div class="chat-input">
-    <input type="text" id="chat-message" placeholder="Type a message..." />
-    <button id="send-btn">Send</button>
-  </div>
-</div>
 
   <div class="controls">
-  <button id="toggle-audio">🔇 Mute</button>
-  <button id="toggle-video">📷 Turn Off Camera</button>
-</div>
+    <button id="toggle-audio">🔇 Mute</button>
+    <button id="toggle-video">📷 Turn Off Camera</button>
+    <button id="share-screen">🖥️ Share Screen</button>
+  </div>
+
+  <div class="chat">
+    <div id="chat-box"></div>
+    <input type="text" id="chat-message" placeholder="Type message..." />
+    <button id="send-btn">Send</button>
+  </div>
+
+  <div class="code-section">
+    <div class="code-controls">
+      <select id="language-select">
+        <option value="71">Python</option>
+        <option value="54">C++</option>
+        <option value="62">Java</option>
+        <option value="63">JavaScript</option>
+      </select>
+      <button id="run-code">▶️ Run Code</button>
+    </div>
+
+    <textarea id="code-editor">// Write your code here...</textarea>
+    <pre id="code-output">🔍 Output will appear here...</pre>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/javascript/javascript.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
